@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dugmbjswnru5r"]
+
+[ext_resource type="Texture2D" uid="uid://cyul8lk160rvn" path="res://assets/hazards/enemy/spritesheet.png" id="1_7p1mj"]
+[ext_resource type="Script" uid="uid://cx6w4184h5yc5" path="res://scripts/enemy.gd" id="1_md0e3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_md0e3"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(0, 0, 1844, 1353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ra3w"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(1844, 0, 1844, 1353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5uy6h"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(3688, 0, 1844, 1353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4w8v"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(5532, 0, 1844, 1353)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwavj"]
+atlas = ExtResource("1_7p1mj")
+region = Rect2(0, 1353, 1844, 1353)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nenq2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_md0e3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ra3w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5uy6h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4w8v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwavj")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 20.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7p1mj"]
+radius = 48.04165
+
+[node name="Enemy" type="Area2D" unique_id=2112379346]
+position = Vector2(977, 685)
+script = ExtResource("1_md0e3")
+metadata/_edit_group_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=792724201]
+texture_filter = 1
+position = Vector2(-816, -575.5)
+scale = Vector2(0.05965293, 0.059866957)
+sprite_frames = SubResource("SpriteFrames_nenq2")
+animation = &"moving"
+autoplay = "moving"
+frame_progress = 0.4485771
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2092747842]
+position = Vector2(-821, -572)
+shape = SubResource("CircleShape2D_7p1mj")
+
+[node name="Timer" type="Timer" parent="." unique_id=1584966160]
+wait_time = 2.0
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
