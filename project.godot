@@ -11,13 +11,14 @@ config_version=5
 [application]
 
 config/name="signal-hunters"
-run/main_scene="uid://bqkub3676khnn"
+run/main_scene="res://scenes/main_menu.tscn"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
 GameState="*uid://ldr0yowuhvg5"
+NetworkManager="*res://scripts/network_manager.gd"
 
 [display]
 

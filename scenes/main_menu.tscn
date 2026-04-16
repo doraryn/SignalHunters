@@ -1,0 +1,135 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/main_menu.gd" id="1_menu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 42
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12, 0.12, 0.18, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 140.0
+grow_horizontal = 2
+horizontal_alignment = 1
+text = "Signal Hunters"
+label_settings = SubResource("LabelSettings_title")
+
+[node name="MainButtons" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -60.0
+offset_right = 120.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="SingleplayerBtn" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "Singleplayer"
+
+[node name="HostBtn" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "Host Game"
+
+[node name="JoinBtn" type="Button" parent="MainButtons"]
+layout_mode = 2
+text = "Join Game"
+
+[node name="HostPanel" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -80.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="IPLabel" type="Label" parent="HostPanel"]
+layout_mode = 2
+horizontal_alignment = 1
+text = "Starting server..."
+
+[node name="StatusLabel" type="Label" parent="HostPanel"]
+layout_mode = 2
+horizontal_alignment = 1
+text = ""
+
+[node name="BackBtn" type="Button" parent="HostPanel"]
+layout_mode = 2
+text = "Back"
+
+[node name="JoinPanel" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -80.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="StatusLabel" type="Label" parent="JoinPanel"]
+layout_mode = 2
+horizontal_alignment = 1
+text = "Enter the host's IP address"
+
+[node name="IPInput" type="LineEdit" parent="JoinPanel"]
+layout_mode = 2
+placeholder_text = "e.g. 192.168.1.100 or localhost"
+
+[node name="ConnectBtn" type="Button" parent="JoinPanel"]
+layout_mode = 2
+text = "Connect"
+
+[node name="BackBtn2" type="Button" parent="JoinPanel"]
+layout_mode = 2
+text = "Back"
+
+[connection signal="pressed" from="MainButtons/SingleplayerBtn" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="MainButtons/HostBtn" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="MainButtons/JoinBtn" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="HostPanel/BackBtn" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="JoinPanel/ConnectBtn" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="JoinPanel/BackBtn2" to="." method="_on_back_pressed"]
