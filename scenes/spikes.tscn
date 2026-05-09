@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b0qbsuv5hd501"]
+
+[ext_resource type="Texture2D" uid="uid://rhwhgwjnkbra" path="res://assets/hazards/spikes/hazard.png" id="1_5pg7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5pg7g"]
+size = Vector2(76, 58)
+
+[node name="Spikes" type="Node2D" unique_id=1519028026]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=665204710]
+texture_filter = 1
+position = Vector2(29.499996, -22.374989)
+scale = Vector2(0.32161456, 0.22298178)
+texture = ExtResource("1_5pg7g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1842219917]
+position = Vector2(30, -34)
+shape = SubResource("RectangleShape2D_5pg7g")

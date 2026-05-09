@@ -1,0 +1,141 @@
+[gd_scene format=3 uid="uid://d2183j8q3wys5"]
+
+[ext_resource type="Script" uid="uid://f0nx2nh8opqc" path="res://scripts/main_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" uid="uid://dj1pry7yu8ayk" path="res://assets/background/best_bg.png" id="2_ekxnf"]
+[ext_resource type="AudioStream" uid="uid://cgh4k61sf41d2" path="res://assets/audio/music/Binary Harmony.mp3" id="3_bqqt6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_title"]
+font_size = 42
+
+[node name="MainMenu" type="Control" unique_id=913674830]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Background" type="TextureRect" parent="." unique_id=120281733]
+custom_minimum_size = Vector2(1280, 720)
+layout_mode = 0
+offset_right = 1280.0
+offset_bottom = 725.0
+texture = ExtResource("2_ekxnf")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Title" type="Label" parent="." unique_id=442878888]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -200.0
+offset_top = 80.0
+offset_right = 200.0
+offset_bottom = 140.0
+grow_horizontal = 2
+text = "Signal Hunters"
+label_settings = SubResource("LabelSettings_title")
+horizontal_alignment = 1
+
+[node name="MainButtons" type="VBoxContainer" parent="." unique_id=820875404]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -60.0
+offset_right = 120.0
+offset_bottom = 80.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="SingleplayerBtn" type="Button" parent="MainButtons" unique_id=545153704]
+layout_mode = 2
+text = "Singleplayer"
+
+[node name="HostBtn" type="Button" parent="MainButtons" unique_id=766263510]
+layout_mode = 2
+text = "Host Game"
+
+[node name="JoinBtn" type="Button" parent="MainButtons" unique_id=1158029007]
+layout_mode = 2
+text = "Join Game"
+
+[node name="HostPanel" type="VBoxContainer" parent="." unique_id=975170223]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -80.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="IPLabel" type="Label" parent="HostPanel" unique_id=1418178158]
+layout_mode = 2
+text = "Starting server..."
+horizontal_alignment = 1
+
+[node name="StatusLabel" type="Label" parent="HostPanel" unique_id=2107855613]
+layout_mode = 2
+horizontal_alignment = 1
+
+[node name="BackBtn" type="Button" parent="HostPanel" unique_id=1017817336]
+layout_mode = 2
+text = "Back"
+
+[node name="JoinPanel" type="VBoxContainer" parent="." unique_id=1331889915]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -80.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 12
+
+[node name="StatusLabel" type="Label" parent="JoinPanel" unique_id=322530349]
+layout_mode = 2
+text = "Enter the host's IP address"
+horizontal_alignment = 1
+
+[node name="IPInput" type="LineEdit" parent="JoinPanel" unique_id=278759933]
+layout_mode = 2
+placeholder_text = "e.g. 192.168.1.100 or localhost"
+
+[node name="ConnectBtn" type="Button" parent="JoinPanel" unique_id=699523948]
+layout_mode = 2
+text = "Connect"
+
+[node name="BackBtn2" type="Button" parent="JoinPanel" unique_id=381324782]
+layout_mode = 2
+text = "Back"
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1705384349]
+stream = ExtResource("3_bqqt6")
+volume_db = -10.0
+autoplay = true
+
+[connection signal="pressed" from="MainButtons/SingleplayerBtn" to="." method="_on_singleplayer_pressed"]
+[connection signal="pressed" from="MainButtons/HostBtn" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="MainButtons/JoinBtn" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="HostPanel/BackBtn" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="JoinPanel/ConnectBtn" to="." method="_on_connect_pressed"]
+[connection signal="pressed" from="JoinPanel/BackBtn2" to="." method="_on_back_pressed"]

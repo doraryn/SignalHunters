@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c71qby651r5n1"]
+
+[ext_resource type="Texture2D" uid="uid://bl5483vflv55w" path="res://assets/UI/heart.png" id="1_tf86k"]
+
+[sub_resource type="SystemFont" id="SystemFont_5p55f"]
+subpixel_positioning = 0
+
+[node name="Timer" type="Control" unique_id=550488716]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 308.0
+offset_top = 192.0
+offset_right = 435.0
+offset_bottom = 339.0
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="." unique_id=1468191376]
+layout_mode = 0
+offset_left = 324.0
+offset_top = 83.0
+offset_right = 343.0
+offset_bottom = 120.0
+theme_override_fonts/font = SubResource("SystemFont_5p55f")
+theme_override_font_sizes/font_size = 27
+text = "3"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=61651655]
+position = Vector2(298, 103)
+scale = Vector2(0.011833353, 0.0100308275)
+texture = ExtResource("1_tf86k")

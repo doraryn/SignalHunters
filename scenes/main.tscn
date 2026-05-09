@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bqkub3676khnn"]
+
+[ext_resource type="Script" uid="uid://dswxe1yaateaq" path="res://scripts/main.gd" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://8hrn7sripwrl" path="res://scenes/levels/tutorial.tscn" id="2_0wfyh"]
+[ext_resource type="AudioStream" uid="uid://bta0g0kajdc82" path="res://assets/audio/ambience/Digital Serenity.mp3" id="3_sugp2"]
+[ext_resource type="AudioStream" uid="uid://bkl5yx6l3ld3y" path="res://assets/audio/ambience/machinery_hum.mp3" id="4_jyhfs"]
+[ext_resource type="AudioStream" uid="uid://uu46ld0y4wsn" path="res://assets/audio/ambience/wind.mp3" id="5_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://dq1ui18816aun" path="res://assets/audio/ambience/scifi_buzz.mp3" id="6_tefeu"]
+
+[node name="Main" type="Node2D" unique_id=93379241]
+script = ExtResource("1_0wfyh")
+
+[node name="LevelRoot" parent="." unique_id=295750516 instance=ExtResource("2_0wfyh")]
+position = Vector2(12, -15)
+
+[node name="Ambience" type="AudioStreamPlayer2D" parent="." unique_id=1869216478]
+stream = ExtResource("3_sugp2")
+volume_db = -15.0
+autoplay = true
+
+[node name="Machinery" type="AudioStreamPlayer2D" parent="." unique_id=1203831545]
+stream = ExtResource("4_jyhfs")
+volume_db = -10.0
+autoplay = true
+
+[node name="Wind" type="AudioStreamPlayer2D" parent="." unique_id=48357284]
+stream = ExtResource("5_tbgi4")
+volume_db = -10.0
+autoplay = true
+
+[node name="Robot" type="AudioStreamPlayer2D" parent="." unique_id=552713258]
+stream = ExtResource("6_tefeu")
+volume_db = -10.0
+autoplay = true
